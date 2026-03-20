@@ -1,220 +1,187 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pejichi - El Gigante de la Selva</title>
+    <title>Pejichi | El Armadillo Gigante</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        earth: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            500: '#a37c6d',
+                            800: '#4a3728',
+                            900: '#2d1e16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary: #8d6e63;
-            --primary-dark: #5f4339;
-            --accent: #d4a373;
-            --bg: #fafafa;
-            --text: #333;
-            --white: #ffffff;
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(45,30,22,1)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animaciones */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Header / Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            clip-path: ellipse(150% 100% at 50% 0%);
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            animation: fadeInUp 1s ease-out;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        /* Contenedor Principal */
-        .container {
-            max-width: 1000px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
-        }
-
-        /* Tarjeta de Información */
-        .info-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: fadeInUp 1.5s ease-out;
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-left: 5px solid var(--accent);
-            padding-left: 15px;
-        }
-
-        /* Grid de Características */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #eee;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.2);
-        }
-
-        .feature-item h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        /* Decoración Visual */
-        .badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* Imagen decorativa (Placeholder) */
-        .illustration {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px;
-            background: #e0e0e0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @media (max-width: 600px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            header { height: 40vh; }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body>
+<body class="bg-earth-900 text-earth-100 antialiased overflow-x-hidden">
 
-    <header>
-        <div class="hero-content">
-            <h1>Pejichi</h1>
-            <p>Priodontes maximus • El Gran Armadillo</p>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-800 tracking-tighter text-white">PEJICHI<span class="text-earth-500">.</span></div>
+        <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest">
+            <a href="#inicio" class="hover:text-earth-500 transition">Inicio</a>
+            <a href="#biologia" class="hover:text-earth-500 transition">Biología</a>
+            <a href="#amenazas" class="hover:text-earth-500 transition">Amenazas</a>
+            <a href="#galeria" class="hover:text-earth-500 transition">Galería</a>
+            <a href="#jiji" class="hover:text-earth-500 transition">Jiji</a>
         </div>
-    </header>
+        <button class="bg-earth-500 hover:bg-white hover:text-earth-900 px-6 py-2 rounded-full text-sm font-bold transition-all duration-300">
+            CONTRIBUIR
+        </button>
+    </nav>
 
-    <div class="container">
-        <section class="info-card">
-            <div class="illustration">🐾</div>
-            <h2 class="section-title">¿Quién es el Pejichi?</h2>
-            <p>
-                El <strong>Pejichi</strong>, también conocido como Tatú Carreta o Armadillo Gigante, es el representante más grande de su familia. Un ingeniero natural capaz de transformar el ecosistema con sus poderosas garras.
+    <!-- Hero Section -->
+    <section id="inicio" class="h-screen flex items-center justify-center relative hero-gradient px-6 text-center">
+        <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="1200">
+            <h1 class="text-6xl md:text-9xl font-800 mb-6 tracking-tight leading-none">
+                EL REY DE <br><span class="text-earth-500 italic">LA TIERRA</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-earth-100/80 mb-10 max-w-2xl mx-auto font-light">
+                Descubre al Priodontes maximus, el armadillo más grande del mundo y arquitecto vital de los ecosistemas sudamericanos.
             </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#biologia" class="bg-white text-earth-900 px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform">
+                    Explorar Especie
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="badge">Tamaño</span>
-                    <h3>Gigante Noble</h3>
-                    <p>Puede llegar a medir hasta 1.5 metros de largo y pesar hasta 60 kilogramos. Es un verdadero tanque de la naturaleza.</p>
-                </div>
-
-                <div class="feature-item">
-                    <span class="badge">Habilidad</span>
-                    <h3>Excavador Experto</h3>
-                    <p>Posee garras delanteras inmensas, especialmente la tercera, que utiliza para romper termiteros y cavar madrigueras profundas.</p>
-                </div>
-
-                <div class="feature-item">
-                    <span class="badge">Hábitat</span>
-                    <h3>Selvas y Llanos</h3>
-                    <p>Habita en gran parte de Sudamérica, prefiriendo zonas cercanas al agua donde el suelo sea apto para sus excavaciones.</p>
+    <!-- Características Section -->
+    <section id="biologia" class="py-24 px-6 md:px-24">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1540304381005-9e6727284b3e?q=80&w=1000&auto=format&fit=crop" 
+                     alt="Pejichi en la selva" 
+                     class="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition duration-700 w-full object-cover h-[500px]">
+                <p class="mt-4 text-earth-500 text-sm italic font-medium">[Imagen de Pejichi caminando por el bosque seco]</p>
+            </div>
+            <div data-aos="fade-left">
+                <span class="text-earth-500 font-800 uppercase tracking-widest text-sm">Características Únicas</span>
+                <h2 class="text-4xl md:text-5xl font-800 mt-4 mb-8">Un ingeniero de la naturaleza.</h2>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-earth-500/20 p-3 rounded-xl"><i data-lucide="maximize" class="text-earth-500"></i></div>
+                        <div>
+                            <h3 class="font-bold text-xl">Tamaño Monumental</h3>
+                            <p class="text-earth-100/60">Puede llegar a medir hasta 1.5 metros de largo y pesar 50 kg, superando por mucho a sus parientes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-earth-500/20 p-3 rounded-xl"><i data-lucide="shield" class="text-earth-500"></i></div>
+                        <div>
+                            <h3 class="font-bold text-xl">Armadura Flexible</h3>
+                            <p class="text-earth-100/60">Su caparazón está formado por bandas móviles que le permiten una movilidad sorprendente en terrenos difíciles.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-earth-500/20 p-3 rounded-xl"><i data-lucide="pickaxe" class="text-earth-500"></i></div>
+                        <div>
+                            <h3 class="font-bold text-xl">Garras de Excavación</h3>
+                            <p class="text-earth-100/60">Posee la garra más grande del reino animal (proporcionalmente), ideal para romper termiteros de concreto.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="info-card" style="background: var(--primary-dark); color: white;">
-            <h2 class="section-title" style="color: var(--accent); border-color: var(--accent);">Conservación</h2>
-            <p>
-                Actualmente se encuentra en situación <strong>Vulnerable</strong>. Es un animal solitario y nocturno, lo que hace que cada avistamiento sea un evento mágico y raro. Proteger su hábitat es proteger el equilibrio de nuestros bosques.
+    <!-- Banner Intermedio -->
+    <section class="py-32 bg-earth-800 text-center px-6">
+        <div class="max-w-3xl mx-auto" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-5xl font-800 mb-8 leading-tight">¿Sabías que sus madrigueras sirven de refugio para más de 100 especies distintas?</h2>
+            <p class="text-earth-100/70 text-lg italic italic">Es considerado un "Arquitecto de Ecosistemas".</p>
+        </div>
+    </section>
+
+    <!-- Galería Visual -->
+    <section id="galeria" class="py-24 px-6 md:px-12 bg-black/30">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-800 tracking-tight">Galería del Gigante</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group relative overflow-hidden rounded-2xl h-[400px]" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1596495573428-2780654c600f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-earth-900/80 to-transparent flex items-end p-8">
+                    <p class="text-white font-bold">[Madriguera de Pejichi]</p>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-2xl h-[400px]" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1588167056840-13caf6e4562a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-earth-900/80 to-transparent flex items-end p-8">
+                    <p class="text-white font-bold">[Alimentación del Armadillo Gigante]</p>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-2xl h-[400px]" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1516233758813-a38d024919c5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-earth-900/80 to-transparent flex items-end p-8">
+                    <p class="text-white font-bold">[Hábitat de la Chiquitania]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-3xl font-800 mb-6 text-earth-500">PEJICHI</div>
+            <p class="text-earth-100/40 text-sm mb-8">
+                El armadillo gigante es una especie vulnerable (VU) según la UICN. <br>Protege su hogar, protege la biodiversidad.
             </p>
-        </section>
-    </div>
-
-    <footer>
-        <p>Diseñado con ❤️ para la fauna sudamericana</p>
-        <p>&copy; 2024 Naturaleza Viva</p>
+            <div class="flex justify-center space-x-6">
+                <i data-lucide="instagram" class="hover:text-earth-500 cursor-pointer"></i>
+                <i data-lucide="twitter" class="hover:text-earth-500 cursor-pointer"></i>
+                <i data-lucide="facebook" class="hover:text-earth-500 cursor-pointer"></i>
+            </div>
+            <p class="mt-8 text-[10px] uppercase tracking-widest text-earth-500">© 2024 Conservación Pejichi - Bolivia / Brasil / Paraguay</p>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones
+        AOS.init({
+            once: true,
+            offset: 200
+        });
+        
+        // Inicializar iconos
+        lucide.createIcons();
+    </script>
 </body>
 </html>
