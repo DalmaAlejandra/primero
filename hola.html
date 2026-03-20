@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pejichi - El Gigante de la Selva</title>
+    <style>
+        :root {
+            --primary: #8d6e63;
+            --primary-dark: #5f4339;
+            --accent: #d4a373;
+            --bg: #fafafa;
+            --text: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        /* Tarjeta de Información */
+        .info-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1.5s ease-out;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        /* Grid de Características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.2);
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Decoración Visual */
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Imagen decorativa (Placeholder) */
+        .illustration {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            header { height: 40vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>Pejichi</h1>
+            <p>Priodontes maximus • El Gran Armadillo</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="info-card">
+            <div class="illustration">🐾</div>
+            <h2 class="section-title">¿Quién es el Pejichi?</h2>
+            <p>
+                El <strong>Pejichi</strong>, también conocido como Tatú Carreta o Armadillo Gigante, es el representante más grande de su familia. Un ingeniero natural capaz de transformar el ecosistema con sus poderosas garras.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="badge">Tamaño</span>
+                    <h3>Gigante Noble</h3>
+                    <p>Puede llegar a medir hasta 1.5 metros de largo y pesar hasta 60 kilogramos. Es un verdadero tanque de la naturaleza.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="badge">Habilidad</span>
+                    <h3>Excavador Experto</h3>
+                    <p>Posee garras delanteras inmensas, especialmente la tercera, que utiliza para romper termiteros y cavar madrigueras profundas.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="badge">Hábitat</span>
+                    <h3>Selvas y Llanos</h3>
+                    <p>Habita en gran parte de Sudamérica, prefiriendo zonas cercanas al agua donde el suelo sea apto para sus excavaciones.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card" style="background: var(--primary-dark); color: white;">
+            <h2 class="section-title" style="color: var(--accent); border-color: var(--accent);">Conservación</h2>
+            <p>
+                Actualmente se encuentra en situación <strong>Vulnerable</strong>. Es un animal solitario y nocturno, lo que hace que cada avistamiento sea un evento mágico y raro. Proteger su hábitat es proteger el equilibrio de nuestros bosques.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Diseñado con ❤️ para la fauna sudamericana</p>
+        <p>&copy; 2024 Naturaleza Viva</p>
+    </footer>
+
+</body>
+</html>
