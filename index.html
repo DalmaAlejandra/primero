@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pejichi - El Gigante de las Selvas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#0f0e0c] text-stone-200">
+
+    <!-- Navegación Cinematográfica -->
+    <nav class="fixed w-full z-50 transition-all duration-500 py-6 px-4 md:px-12" id="main-nav">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(217,119,6,0.5)]">
+                    <i class="fas fa-paw text-white"></i>
+                </div>
+                <span class="text-2xl font-black tracking-widest text-white uppercase">Pejichi</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#inicio" class="text-sm font-bold uppercase tracking-widest hover:text-amber-500 transition">Inicio</a>
+                <a href="#especie" class="text-sm font-bold uppercase tracking-widest hover:text-amber-500 transition">La Especie</a>
+                <a href="#habitat" class="text-sm font-bold uppercase tracking-widest hover:text-amber-500 transition">Hábitat</a>
+                <a href="#contacto" class="bg-amber-600 text-white px-6 py-2 rounded-full font-bold hover:bg-amber-500 transition shadow-lg">Unirse</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: Impacto Visual -->
+    <section id="inicio" class="hero-video-container flex items-center justify-center">
+        <!-- Imagen de alta calidad con efecto oscuro cinematográfico -->
+        <img src="https://images.unsplash.com/photo-1590691566403-13bd08435637?auto=format&fit=crop&q=80&w=2000" 
+             alt="Selva Profunda" 
+             class="absolute inset-0 w-full h-full object-cover scale-110 blur-[2px]">
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl">
+            <span class="inline-block px-4 py-1 mb-6 border border-amber-500/50 rounded-full text-amber-500 text-xs font-bold uppercase tracking-[0.3em] bg-amber-500/10 animate-pulse">
+                Tesoro de la Amazonía y el Chaco
+            </span>
+            <h1 class="text-6xl md:text-9xl font-black serif italic text-white leading-none mb-8 text-glow">
+                El Último <br> <span class="text-amber-500">Gigante</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-stone-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                Descubre al <span class="font-bold text-white italic">Priodontes maximus</span>, la leyenda viviente que moldea la tierra con sus propias garras.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="#especie" class="group relative px-10 py-4 overflow-hidden rounded-full bg-white text-black font-bold transition-all">
+                    <span class="relative z-10">Explorar Biología</span>
+                    <div class="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                </a>
+                <button class="flex items-center gap-3 text-white font-bold hover:text-amber-500 transition">
+                    <i class="fas fa-play-circle text-4xl"></i> Ver Documental
+                </button>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Sección de la Especie -->
+    <section id="especie" class="py-24 bg-[#0f0e0c]">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-amber-600/20 rounded-2xl blur-2xl group-hover:bg-amber-600/30 transition"></div>
+                    <!-- Imagen enfocada en texturas -->
+                    <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1549221544-2396e9569769?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Armadillo Gigante Detalle" 
+                             class="w-full h-[600px] object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-amber-500 font-bold uppercase tracking-widest text-xs mb-2">Primer Plano</p>
+                            <h4 class="text-2xl font-bold">Armadura Natural</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-5xl font-black serif italic mb-8 text-white">Un Ingeniero <br> de la <span class="text-amber-600">Noche</span></h2>
+                    <p class="text-stone-400 text-lg leading-relaxed mb-8">
+                        El Pejichi no es solo un armadillo; es un arquitecto. Sus excavaciones crean microclimas que albergan a más de <span class="text-white font-bold">50 especies distintas</span>. En la oscuridad de la selva boliviana, este tanque biológico de 60 kg patrulla el suelo forestal.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-amber-600">
+                            <h5 class="text-amber-500 font-bold text-sm uppercase mb-1">Fuerza Bruta</h5>
+                            <p class="text-white font-bold text-xl">60 Kilogramos</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-amber-600">
+                            <h5 class="text-amber-500 font-bold text-sm uppercase mb-1">Armamento</h5>
+                            <p class="text-white font-bold text-xl">20cm Garras</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-amber-600">
+                            <h5 class="text-amber-500 font-bold text-sm uppercase mb-1">Curiosidad</h5>
+                            <p class="text-white font-bold text-xl">100+ Dientes</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border-l-4 border-amber-600">
+                            <h5 class="text-amber-500 font-bold text-sm uppercase mb-1">Rareza</h5>
+                            <p class="text-white font-bold text-xl">Solitario</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Mid-Section -->
+    <section id="habitat" class="parallax h-[60vh] flex items-center justify-center relative" 
+             style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=2000');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black serif italic text-white mb-4 italic">Su Reino Desaparece</h2>
+            <p class="text-xl text-amber-500 font-bold tracking-[0.2em] uppercase">Protege el Gran Chaco</p>
+        </div>
+    </section>
+
+    <!-- Sección de Amenazas Estilo "Noir" -->
+    <section class="py-24 bg-stone-950">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-sm font-bold text-amber-600 tracking-[0.4em] uppercase mb-4">La Crisis</h3>
+                <h2 class="text-5xl font-black serif text-white italic">Al Borde del Silencio</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="relative h-[400px] group overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800" 
+                         alt="Deforestación" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
+                        <h4 class="text-2xl font-bold text-white mb-2">Deforestación</h4>
+                        <p class="text-stone-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity">El avance de la frontera agrícola destruye su hogar a un ritmo alarmante.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="relative h-[400px] group overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1490100667990-4fced8021649?auto=format&fit=crop&q=80&w=800" 
+                         alt="Cacería" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
+                        <h4 class="text-2xl font-bold text-white mb-2">Cacería</h4>
+                        <p class="text-stone-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Perseguido por su carne o por miedo, el Pejichi es un blanco vulnerable.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="relative h-[400px] group overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" 
+                         alt="Aislamiento" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
+                        <h4 class="text-2xl font-bold text-white mb-2">Fragmentación</h4>
+                        <p class="text-stone-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Carreteras que dividen familias y territorios, condenando su genética.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Elegante -->
+    <footer id="contacto" class="bg-[#080705] border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <span class="text-2xl font-black text-white tracking-widest uppercase">Pejichi</span>
+                <p class="text-stone-500 text-sm mt-2">Guardianes de la biodiversidad boliviana.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-white hover:text-amber-500 text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-amber-500 text-xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-amber-500 text-xl"><i class="fab fa-youtube"></i></a>
+            </div>
+            <button class="px-8 py-3 border border-amber-500 text-amber-500 font-bold rounded-full hover:bg-amber-500 hover:text-white transition">
+                Donar al Proyecto
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Cambio de estilo del Navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-xl', 'py-4', 'shadow-2xl');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-xl', 'py-4', 'shadow-2xl');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // Efecto de aparición al scrollear (Sencillo)
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
