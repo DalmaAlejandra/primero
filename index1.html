@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drogas y Adolescentes - Información y Prevención</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #764ba2;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .danger-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .recursos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .recurso-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .recurso-card h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .recurso-card i {
+            color: #764ba2;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .test-section {
+            background: #f0f4ff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .question {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .question label {
+            display: block;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+        }
+
+        .question label:hover {
+            background: #e8eef7;
+        }
+
+        .question input[type="radio"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .icon-box i {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="animate__animated animate__slideInDown">
+        <h1><i class="fas fa-shield-alt"></i> Drogas y Adolescentes</h1>
+        <p>Información, prevención y apoyo para una vida saludable</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a onclick="mostrarSeccion('inicio')"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a onclick="mostrarSeccion('efectos')"><i class="fas fa-exclamation-triangle"></i> Efectos</a></li>
+            <li><a onclick="mostrarSeccion('tipos')"><i class="fas fa-list"></i> Tipos</a></li>
+            <li><a onclick="mostrarSeccion('prevencion')"><i class="fas fa-heart"></i> Prevención</a></li>
+            <li><a onclick="mostrarSeccion('ayuda')"><i class="fas fa-phone"></i> Ayuda</a></li>
+            <li><a onclick="mostrarSeccion('test')"><i class="fas fa-question-circle"></i> Test</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio" class="active">
+            <h2><i class="fas fa-info-circle"></i> Bienvenido</h2>
+            
+            <p>
+                Esta plataforma ha sido diseñada como una herramienta educativa para adolescentes, padres y educadores 
+                que desean comprender mejor el impacto del consumo de drogas en los jóvenes. Nuestro objetivo es proporcionar 
+                información veraz, actualizada y basada en evidencia científica.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">25%</div>
+                    <div class="stat-label">de adolescentes han probado drogas antes de los 18 años</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">es la edad promedio del primer consumo</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">89%</div>
+                    <div class="stat-label">de casos podrían prevenirse con educación</div>
+                </div>
+            </div>
+
+            <h3>¿Por qué es importante este tema?</h3>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-brain"></i> Desarrollo cerebral</div>
+                <p>
+                    El cerebro de los adolescentes está en desarrollo, especialmente la corteza prefrontal que controla 
+                    la toma de decisiones y el control de impulsos. Las drogas pueden interferir con este proceso crítico.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-heartbeat"></i> Salud física</div>
+                <p>
+                    El consumo de drogas en la adolescencia afecta directamente el desarrollo físico, el sistema nervioso 
+                    central y puede causar daños permanentes a órganos vitales.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-graduation-cap"></i> Rendimiento académico</div>
+                <p>
+                    Estudios demuestran que el consumo de drogas reduce significativamente el rendimiento escolar y afecta 
+                    las oportunidades educativas y laborales futuras.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN EFECTOS -->
+        <section id="efectos">
+            <h2><i class="fas fa-exclamation-triangle"></i> Efectos de las Drogas en Adolescentes</h2>
+
+            <h3>Efectos Inmediatos</h3>
+            <div class="danger-box">
+                <strong>⚠️ Impacto Agudo:</strong>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li>Alteración de la percepción y coordinación motora</li>
+                    <li>Aumento o disminución de la frecuencia cardíaca</li>
+                    <li>Cambios en el estado de ánimo y comportamiento</li>
+                    <li>Compromiso del juicio y toma de decisiones</li>
+                    <li>Mayor riesgo de accidentes y lesiones</li>
+                    <li>Posible sobredosis</li>
+                </ul>
+            </div>
+
+            <h3>Efectos a Largo Plazo</h3>
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-head-side-virus"></i> Neurológicos</div>
+                    <p>Daño en estructuras cerebrales, problemas de memoria, dificultades de concentración, alteraciones del sueño.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-lungs"></i> Respiratorios</div>
+                    <p>Enfermedad pulmonar obstructiva crónica, cáncer de pulmón, problemas respiratorios crónicos.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-heart"></i> Cardiovasculares</div>
+                    <p>Presión arterial elevada, infarto, accidente cerebrovascular, arritmias cardíacas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-flask-vial"></i> Psicológicos</div>
+                    <p>Depresión, ansiedad, paranoia, psicosis, trastornos de comportamiento.</p>
+                </div>
+            </div>
+
+            <h3>Dependencia Física y Psicológica</h3>
+            <div class="warning-box">
+                <strong>⚠️ Importante:</strong> Muchas drogas crean dependencia rápidamente en adolescentes, cuya capacidad 
+                de autorregulación aún está en desarrollo. La adicción puede desarrollarse en semanas en lugar de meses o años.
+            </div>
+        </section>
+
+        <!-- SECCIÓN TIPOS -->
+        <section id="tipos">
+            <h2><i class="fas fa-list"></i> Tipos de Drogas</h2>
+
+            <h3>Drogas Legales (pero dañinas)</h3>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-smoking"></i> Nicotina (Tabaco)</div>
+                <p>
+                    Altamente adictiva. Causa dependencia física y psicológica. Afecta el desarrollo del cerebro adolescente, 
+                    especialmente las áreas relacionadas con la atención y el aprendizaje. Aumenta el riesgo de enfermedades 
+                    respiratorias y cardiovasculares.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-beer"></i> Alcohol</div>
+                <p>
+                    Depresor del sistema nervioso central. En adolescentes, causa daño a largo plazo en el desarrollo cerebral. 
+                    Afecta el juicio, aumenta conductas de riesgo, y puede llevar a dependencia. Afecta especialmente el 
+                    aprendizaje y la memoria.
+                </p>
+            </div>
+
+            <h3>Drogas Ilegales</h3>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-leaf"></i> Cannabis (Marihuana)</div>
+                <p>
+                    Contiene THC que afecta el cerebro en desarrollo. Puede causar problemas de memoria, reducción del 
+                    rendimiento académico, alteraciones del sueño. El uso temprano está asociado con mayor riesgo de 
+                    psicosis en personas predispuestas.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-powder"></i> Cocaína y Crack</div>
+                <p>
+                    Estimulantes altamente adictivos. Aumentan significativamente la frecuencia cardíaca y presión arterial. 
+                    Riesgo alto de infarto, especialmente en adolescentes con corazón en desarrollo. Causan ansiedad severa y paranoia.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-prescription-bottle-alt"></i> Metanfetamina</div>
+                <p>
+                    Estimulante de potencia extrema. Causa adicción rápida. Efectos devastadores en la salud dental, piel, 
+                    cerebro y corazón. Riesgo extremo de sobredosis.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-cube"></i> Heroína y Opioides</div>
+                <p>
+                    Depresores opiáceos altamente adictivos. Riesgo extremo de overdosis fatal. Especialmente peligrosa la 
+                    mezcla con otras sustancias. Causa cambios permanentes en el sistema de recompensa del cerebro.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><i class="fas fa-flask"></i> Drogas de Síntesis (Éxtasis, LSD)</div>
+                <p>
+                    Alucinógenos que alteran la percepción y el pensamiento. Pueden desencadenar o exacerbar problemas de salud mental. 
+                    Riesgo de comportamientos peligrosos durante su efecto.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PREVENCIÓN -->
+        <section id="prevencion">
+            <h2><i class="fas fa-heart"></i> Estrategias de Prevención</h2>
+
+            <h3>Para Adolescentes</h3>
+            <div class="success-box">
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Educación:</strong> Busca información veraz sobre las drogas y sus efectos</li>
+                    <li><strong>Comunicación:</strong> Habla abiertamente con padres, maestros y consejeros</li>
+                    <li><strong>Actividades:</strong> Participa en deportes, arte, música y actividades que disfrutes</li>
+                    <li><strong>Círculo social:</strong> Elige amigos que compartan tus valores saludables</li>
+                    <li><strong>Gestión del estrés:</strong> Aprende técnicas de relajación y manejo de emociones</li>
+                    <li><strong>Rechazo asertivo:</strong> Aprende a decir "no" de manera segura y efectiva</li>
+                    <li><strong>Autoestima:</strong> Cultiva confianza en ti mismo y tus decisiones</li>
+                </ul>
+            </div>
+
+            <h3>Para Padres y Educadores</h3>
+            <div class="success-box">
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Comunícate abiertamente:</strong> Mantén diálogos frecuentes sin juzgar</li>
+                    <li><strong>Sé modelo:</strong> Demuestra comportamientos saludables</li>
+                    <li><strong>Establece límites claros:</strong> Ten reglas y consecuencias consistentes</li>
+                    <li><strong>Supervisa actividades:</strong> Conoce dónde están y con quién están tus hijos</li>
+                    <li><strong>Identifica señales de alerta:</strong> Aprende a reconocer cambios de comportamiento</li>
+                    <li><strong>Busca ayuda profesional:</strong> Consulta con especialistas si lo necesitas</li>
+                    <li><strong>Involúcrate en la escuela:</strong> Colabora con programas de prevención</li>
+                </ul>
+            </div>
+
+            <h3>Señales de Alerta</h3>
+            <div class="warning-box">
+                <p><strong>Cambios físicos:</strong> Pérdida de peso, ojoroso, negligencia en la higiene personal</p>
+                <p><strong>Cambios emocionales:</strong> Cambios drásticos de humor, irritabilidad, apatía</p>
+                <p><strong>Cambios académicos:</strong> Caída en calificaciones, ausentismo escolar</p>
+                <p><strong>Cambios sociales:</strong> Nuevo grupo de amigos, aislamiento, conductas secretas</p>
+                <p><strong>Cambios de comportamiento:</strong> Dinero desaparecido, dinero extra sin justificación</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN AYUDA -->
+        <section id="ayuda">
+            <h2><i class="fas fa-phone"></i> Recursos de Ayuda</h2>
+
+            <p>
+                Si tú o alguien que conoces está lidiando con el consumo de drogas, hay ayuda disponible. No estás solo(a).
+            </p>
+
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4><i class="fas fa-phone-alt"></i> Líneas de Atención</h4>
+                    <p>
+                        Llamadas confidenciales 24/7 donde puedes hablar con profesionales especializados.
+                    </p>
+                    <p style="margin-top: 1rem;"><strong>Busca en tu país:</strong></p>
+                    <p>América Latina: Programas nacionales de prevención y tratamiento</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4><i class="fas fa-hospital-user"></i> Tratamiento Profesional</h4>
+                    <p>
+                        Centros de rehabilitación especializados en adolescentes con tratamiento personalizado.
+                    </p>
+                    <p style="margin-top: 1rem;">La recuperación es posible con apoyo profesional adecuado.</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4><i class="fas fa-users"></i> Grupos de Apoyo</h4>
+                    <p>
+                        Comunidades de personas en recuperación que comparten experiencias y apoyo mutuo.
+                    </p>
+                    <p style="margin-top: 1rem;">Narcoticos Anónimos, Alcohólicos Anónimos, etc.</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4><i class="fas fa-heartbeat"></i> Salud Mental</h4>
+                    <p>
+                        Consejería psicológica para tratar la raíz de los problemas y desarrollar estrategias saludables.
+                    </p>
+                    <p style="margin-top: 1rem;">Terapeutas especializados en adolescentes</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4><i class="fas fa-graduation-cap"></i> Educación</h4>
+                    <p>
+                        Programas educativos sobre drogas en escuelas y comunidades.
+                    </p>
+                    <p style="margin-top: 1rem;">Prevención basada en evidencia</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4><i class="fas fa-home"></i> Apoyo Familiar</h4>
+                    <p>
+                        Terapia familiar para restaurar relaciones y crear un ambiente de apoyo.
+                    </p>
+                    <p style="margin-top: 1rem;">Toda la familia juega un papel importante en la recuperación</p>
+                </div>
+            </div>
+
+            <h3>Pasos Siguientes</h3>
+            <div class="success-box">
+                <p><strong>1. Reconoce el problema:</strong> El primer paso es admitir que existe un problema</p>
+                <p><strong>2. Busca ayuda:</strong> Contacta a un profesional o línea de atención</p>
+                <p><strong>3. Crea un plan:</strong> Trabaja con expertos para desarrollar un plan de tratamiento</p>
+                <p><strong>4. Obtén apoyo:</strong> Rodéate de personas que te apoyen en tu recuperación</p>
+                <p><strong>5. Persevera:</strong> La recuperación es un proceso, sé paciente contigo mismo</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN TEST -->
+        <section id="test">
+            <h2><i class="fas fa-question-circle"></i> Test de Conocimiento</h2>
+            <p>
+                Evalúa lo que has aprendido sobre drogas y sus efectos en adolescentes. 
+                Este test es educativo y confidencial.
+            </p>
+
+            <div class="test-section">
+                <div class="question">
+                    <p><strong>1. ¿A qué edad es más vulnerable el cerebro a los efectos de las drogas?</strong></p>
+                    <label><input type="radio" name="q1"> a) Después de los 25 años</label>
+                    <label><input type="radio" name="q1"> b) Durante la adolescencia y hasta los 25 años</label>
+                    <label><input type="radio" name="q1"> c) La edad no importa</label>
+                </div>
+
+                <div class="question">
+                    <p><strong>2. ¿Cuál de las siguientes NO es un efecto a largo plazo de las drogas?</strong></p>
+                    <label><input type="radio" name="q2"> a) Daño cerebral permanente</label>
+                    <label><input type="radio" name="q2"> b) Mejor rendimiento académico</label>
+                    <label><input type="radio" name="q2"> c) Problemas respiratorios</label>
+                </div>
+
+                <div class="question">
+                    <p><strong>3. ¿Cuál es la edad promedio del primer consumo de drogas?</strong></p>
+                    <label><input type="radio" name="q3"> a) 10 años</label>
+                    <label><input type="radio" name="q3"> b) 15 años</label>
+                    <label><input type="radio" name="q3"> c) 20 años</label>
+                </div>
+
+                <div class="question">
+                    <p><strong>4. ¿Cuál de estas es una droga legal pero peligrosa?</strong></p>
+                    <label><input type="radio" name="q4"> a) Cannabis</label>
+                    <label><input type="radio" name="q4"> b) Cocaína</label>
+                    <label><input type="radio" name="q4"> c) Alcohol</label>
+                </div>
+
+                <div class="question">
+                    <p><strong>5. ¿Cuál es la mejor manera de decir "no" a las drogas?</strong></p>
+                    <label><input type="radio" name="q5"> a) Ignorar la presión de amigos</label>
+                    <label><input type="radio" name="q5"> b) Ser asertivo y claro: "No, gracias"</label>
+                    <label><input type="radio" name="q5"> c) Alejarse de todas las situaciones sociales</label>
+                </div>
+
+                <button onclick="corregirTest()">Revisar Respuestas</button>
+                <button onclick="limpiarTest()">Limpiar Respuestas</button>
+                <div id="resultado"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Información sobre Drogas y Adolescentes | Recursos Educativos</p>
+        <p>
+            <i class="fas fa-info-circle"></i> Esta página es solo con fines informativos y educativos. 
+            Busca asesoramiento profesional para preguntas de salud específicas.
+        </p>
+        <p>Creado por: DalmaAlejandra | Última actualización: Marzo 2026</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Función para mostrar secciones
+        function mostrarSeccion(seccionId) {
+            // Ocultar todas las secciones
+            const secciones = document.querySelectorAll('section');
+            secciones.forEach(seccion => {
+                seccion.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            const seccionActiva = document.getElementById(seccionId);
+            if (seccionActiva) {
+                seccionActiva.classList.add('active');
+                // Scroll hacia arriba
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Test de conocimiento
+        function corregirTest() {
+            const respuestas = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b',
+                q4: 'c',
+                q5: 'b'
+            };
+
+            let puntaje = 0;
+            let resultado = '<div style="margin-top: 2rem; padding: 1.5rem; background: #f0f4ff; border-radius: 8px;">';
+
+            for (let pregunta in respuestas) {
+                const seleccionado = document.querySelector(`input[name="${pregunta}"]:checked`);
+                
+                if (seleccionado) {
+                    if (seleccionado.parentElement.textContent.includes(respuestas[pregunta])) {
+                        puntaje++;
+                        resultado += `<p><strong style="color: green;">✓ Pregunta ${pregunta.charAt(1)} Correcta</strong></p>`;
+                    } else {
+                        resultado += `<p><strong style="color: red;">✗ Pregunta ${pregunta.charAt(1)} Incorrecta</strong></p>`;
+                    }
+                } else {
+                    resultado += `<p><strong style="color: orange;">? Pregunta ${pregunta.charAt(1)} Sin responder</strong></p>`;
+                }
+            }
+
+            const porcentaje = (puntaje / 5) * 100;
+            resultado += `<p style="margin-top: 1rem; font-size: 1.2rem;"><strong>Resultado: ${puntaje}/5 (${porcentaje}%)</strong></p>`;
+
+            if (porcentaje === 100) {
+                resultado += '<p style="color: green;"><i class="fas fa-trophy"></i> ¡Excelente! Demuestras un gran conocimiento sobre este tema.</p>';
+            } else if (porcentaje >= 80) {
+                resultado += '<p style="color: blue;"><i class="fas fa-thumbs-up"></i> ¡Muy bien! Tienes un buen conocimiento.</p>';
+            } else if (porcentaje >= 60) {
+                resultado += '<p style="color: orange;"><i class="fas fa-graduation-cap"></i> Bien, pero te recomendamos revisar las secciones nuevamente.</p>';
+            } else {
+                resultado += '<p style="color: red;"><i class="fas fa-book"></i> Te recomendamos leer con cuidado todas las secciones.</p>';
+            }
+
+            resultado += '</div>';
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+
+        function limpiarTest() {
+            const preguntas = document.querySelectorAll('input[type="radio"]');
+            preguntas.forEach(pregunta => {
+                pregunta.checked = false;
+            });
+            document.getElementById('resultado').innerHTML = '';
+        }
+
+        // Animaciones AOS
+        AOS.init({
+            duration: 1000,
+            once: false
+        });
+
+        // Animaciones GSAP para elementos al cargar
+        window.addEventListener('load', function() {
+            gsap.from('header', { duration: 1, y: -100, opacity: 0 });
+            gsap.from('nav', { duration: 1, y: -50, opacity: 0, delay: 0.2 });
+            gsap.from('.container', { duration: 1, scale: 0.9, opacity: 0, delay: 0.4 });
+        });
+
+        // Highlight del enlace de navegación activo
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(l => l.style.color = '');
+                this.style.color = '#764ba2';
+                this.style.textDecoration = 'underline';
+            });
+        });
+
+        console.log('Página cargada correctamente');
+    </script>
+</body>
+</html>
