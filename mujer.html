@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrando a las Mujeres - 8 de Marzo</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Typed.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.7.1/typeit.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 25s infinite linear reverse;
+            right: 0;
+            bottom: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(20px, 20px); }
+            50% { transform: translate(0, 40px); }
+            75% { transform: translate(-20px, 20px); }
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .typed {
+            font-size: 1.8rem;
+            color: #ffd89b;
+            font-weight: 600;
+            min-height: 50px;
+        }
+
+        /* Floating Icons */
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .icon-float {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: floatIcon 6s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-text {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Cards Section */
+        .women-cards {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+        }
+
+        .woman-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .woman-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .woman-card i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .woman-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .woman-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e72);
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+        }
+
+        .timeline-item h4 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: #666;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Modal */
+        .modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Form */
+        .form-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .form-control {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e72);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .typed {
+                font-size: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .woman-card {
+                margin: 10px 0;
+            }
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Confetti Effect */
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-heart"></i> 8 de Marzo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stats">Datos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mujeres">Inspiración</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="floating-icons">
+            <div class="icon-float" style="left: 10%; top: 10%;"><i class="fas fa-heart" style="color: #ff6b6b;"></i></div>
+            <div class="icon-float" style="right: 15%; top: 20%;"><i class="fas fa-star" style="color: #ffd89b;"></i></div>
+            <div class="icon-float" style="left: 20%; bottom: 15%;"><i class="fas fa-flower" style="color: #ff8e72;"></i></div>
+            <div class="icon-float" style="right: 10%; bottom: 20%;"><i class="fas fa-circle" style="color: #667eea;"></i></div>
+        </div>
+
+        <div class="hero-content animate__animated animate__fadeInUp">
+            <h1>🌸 Celebrando a las Mujeres 🌸</h1>
+            <div class="typed"></div>
+            <br>
+            <button class="btn-submit" onclick="celebrar()">¡Celebrar!</button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats" data-aos="fade-up">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 stat-box" data-aos="zoom-in">
+                    <div class="stat-number" id="counter1">0</div>
+                    <div class="stat-text">Mujeres Líderes</div>
+                </div>
+                <div class="col-md-3 stat-box" data-aos="zoom-in">
+                    <div class="stat-number" id="counter2">0</div>
+                    <div class="stat-text">Años de Lucha</div>
+                </div>
+                <div class="col-md-3 stat-box" data-aos="zoom-in">
+                    <div class="stat-number" id="counter3">0%</div>
+                    <div class="stat-text">Igualdad</div>
+                </div>
+                <div class="col-md-3 stat-box" data-aos="zoom-in">
+                    <div class="stat-number" id="counter4">0M</div>
+                    <div class="stat-text">Mujeres Mundiales</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Women Inspiration Section -->
+    <section class="women-cards" id="mujeres">
+        <div class="container">
+            <h2 class="text-center text-white mb-5 animate__animated animate__fadeInDown">
+                <i class="fas fa-crown"></i> Áreas de Empoderamiento
+            </h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="woman-card" data-aos="flip-left">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Educación</h3>
+                        <p>Las mujeres tienen derecho a una educación de calidad para desarrollar su potencial máximo.</p>
+                        <button class="btn-submit btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#modal1">Leer Más</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="woman-card" data-aos="flip-left" data-aos-delay="100">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Carrera Profesional</h3>
+                        <p>Igualdad de oportunidades laborales y salarios justos para todas las mujeres.</p>
+                        <button class="btn-submit btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#modal2">Leer Más</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="woman-card" data-aos="flip-left" data-aos-delay="200">
+                        <i class="fas fa-heart-pulse"></i>
+                        <h3>Salud y Bienestar</h3>
+                        <p>Acceso a servicios de salud de calidad y bienestar mental garantizado.</p>
+                        <button class="btn-submit btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#modal3">Leer Más</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-4">
+                    <div class="woman-card" data-aos="flip-right">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Derechos y Justicia</h3>
+                        <p>Protección legal y justicia equitativa en todos los procesos legales.</p>
+                        <button class="btn-submit btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#modal4">Leer Más</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="woman-card" data-aos="flip-right" data-aos-delay="100">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Arte y Cultura</h3>
+                        <p>Espacios para crear, expresar y compartir el talento artístico femenino.</p>
+                        <button class="btn-submit btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#modal5">Leer Más</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="woman-card" data-aos="flip-right" data-aos-delay="200">
+                        <i class="fas fa-globe"></i>
+                        <h3>Participación Global</h3>
+                        <p>Voz y participación en decisiones políticas y comunitarias.</p>
+                        <button class="btn-submit btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#modal6">Leer Más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2 class="text-center mb-5 animate__animated animate__fadeInDown">
+                <i class="fas fa-history"></i> Hitos Históricos
+            </h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <h4>1908: La Primera Marcha</h4>
+                        <p>Miles de mujeres marcharon en Nueva York demandando el derecho al voto y mejores condiciones laborales.</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                        <h4>1975: Año Internacional de la Mujer</h4>
+                        <p>La ONU declara el Año Internacional de la Mujer y se celebra la primera Conferencia Mundial sobre la Mujer.</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                        <h4>1995: Declaración de Beijing</h4>
+                        <p>Se adopta la Declaración y Plataforma de Acción de Beijing, un documento clave para los derechos de las mujeres.</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                        <h4>Hoy: Continuamos Luchando</h4>
+                        <p>Seguimos trabajando hacia un futuro de igualdad, respeto y oportunidades para todas las mujeres.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2 class="text-center text-white mb-5 animate__animated animate__fadeInDown">
+                <i class="fas fa-images"></i> Galería Inspiradora
+            </h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gallery-item" data-aos="zoom-in">
+                        <img src="https://images.unsplash.com/photo-1439157259897-88c5e99d7cc7?w=500&h=300&fit=crop" alt="Mujer profesional">
+                        <div class="gallery-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1494888286183-30c967f2291a?w=500&h=300&fit=crop" alt="Mujeres en equipo">
+                        <div class="gallery-overlay"><i class="fas fa-sparkles"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop" alt="Liderazgo femenino">
+                        <div class="gallery-overlay"><i class="fas fa-crown"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=300&fit=crop" alt="Empoderamiento">
+                        <div class="gallery-overlay"><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f70a504f9?w=500&h=300&fit=crop" alt="Mujeres emprendedoras">
+                        <div class="gallery-overlay"><i class="fas fa-rocket"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=500&h=300&fit=crop" alt="Comunidad de mujeres">
+                        <div class="gallery-overlay"><i class="fas fa-hands"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="form-section" id="contacto">
+        <div class="container">
+            <h2 class="text-center mb-5 animate__animated animate__fadeInDown">
+                <i class="fas fa-envelope"></i> Únete al Movimiento
+            </h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form id="contactForm" data-aos="fade-up">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Tu correo" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Tu mensaje de apoyo..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal fade" id="modal1" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Educación para Todas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    La educación es el pilar fundamental para el empoderamiento de las mujeres. Acceso a educación de calidad significa acceso a oportunidades, independencia económica y voz en la sociedad.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal2" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Carrera Profesional</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Las mujeres merecen las mismas oportunidades de crecimiento profesional que los hombres. Eliminemos las barreras invisibles y celebremos a todas las mujeres que rompen límites.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal3" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Salud y Bienestar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    La salud integral de las mujeres incluye cuidado físico, mental y emocional. Merecemos servicios de salud accesibles y de calidad que respeten nuestras necesidades.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal4" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Derechos y Justicia</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    La justicia debe ser equitativa y accesible para todas. Las mujeres merecen protección legal completa y acceso igualitario a los sistemas de justicia.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal5" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Arte y Cultura</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    El arte es una forma poderosa de expresión. Las mujeres artistas deben tener iguales oportunidades de exposición, financiamiento y reconocimiento mundial.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal6" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Participación Global</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Las decisiones que afectan a las mujeres deben incluir la voz de las mujeres. Participación equitativa en política, negocios y comunidad es esencial.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-heart" style="color: #ff6b6b;"></i> Celebrando a todas las mujeres del mundo <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+            <p>8 de Marzo - Día Internacional de la Mujer</p>
+            <p>&copy; 2026 Por la Igualdad y el Empoderamiento Femenino</p>
+            <div class="mt-3">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.7.1/typeit.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/party@0.2.2/bundle/party.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Typed.js effect
+        new TypeIt(".typed", {
+            strings: [
+                "Somos el cambio que queremos ver",
+                "Juntas somos más fuertes",
+                "Por la igualdad y el empoderamiento",
+                "¡Feliz 8 de Marzo!"
+            ],
+            speed: 50,
+            waitUntilVisible: true,
+            loop: true
+        }).go();
+
+        // Counter animation
+        function animateCounter(id, target, duration = 2000) {
+            const element = document.getElementById(id);
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (id.includes('counter3') ? '' : (id.includes('counter4') ? '' : ''));
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (id.includes('counter3') ? '%' : (id.includes('counter4') ? 'M' : ''));
+                }
+            }, 16);
+        }
+
+        // Trigger counters on scroll
+        const statsSection = document.querySelector('.stats');
+        let countersStarted = false;
+
+        window.addEventListener('scroll', () => {
+            if (!countersStarted && statsSection.getBoundingClientRect().top < window.innerHeight) {
+                animateCounter('counter1', 500);
+                animateCounter('counter2', 120);
+                animateCounter('counter3', 100);
+                animateCounter('counter4', 4);
+                countersStarted = true;
+            }
+        });
+
+        // Celebration function with confetti
+        function celebrar() {
+            party.confetti(document.querySelector('.hero'), {
+                count: party.variation.range(100, 150),
+                spread: 60,
+                size: party.variation.range(0.8, 1.3)
+            });
+
+            // Heart rain effect
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = '-20px';
+                heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+                heart.style.opacity = Math.random() * 0.7 + 0.3;
+                heart.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+
+        // Falling hearts animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu apoyo! 💪');
+            this.reset();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Mouse follow effect on hero
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mousemove', (e) => {
+            const icons = document.querySelectorAll('.icon-float');
+            icons.forEach(icon => {
+                const x = (e.clientX / window.innerWidth) * 50;
+                const y = (e.clientY / window.innerHeight) * 50;
+                icon.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
