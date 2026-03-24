@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pejichi 3D</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+    
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Ocean
+        const oceanGeometry = new THREE.PlaneGeometry(1000, 1000);
+        const oceanMaterial = new THREE.MeshBasicMaterial({ color: 0x0077be, side: THREE.DoubleSide });
+        const ocean = new THREE.Mesh(oceanGeometry, oceanMaterial);
+        ocean.rotation.x = -Math.PI / 2;
+        scene.add(ocean);
+
+        // Pejichi Fish (simplified version)
+        const fishGeometry = new THREE.BoxGeometry(1, 0.3, 0.1);
+        const fishMaterial = new THREE.MeshBasicMaterial({ color: 0xffcc00 });
+        const pejichi = new THREE.Mesh(fishGeometry, fishMaterial);
+        scene.add(pejichi);
+
+        // Lighting
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x404040));
+
+        camera.position.z = 5;
+
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            pejichi.position.x += 0.01;
+            if (pejichi.position.x > 5) pejichi.position.x = -5; // Loop the fish
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
