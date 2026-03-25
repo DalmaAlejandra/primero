@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Cruz de la Sierra - La Hospitalidad | Dalma Alejandra</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Glitch Effect CSS -->
+    <link href="https://unpkg.com/glitch-effect/dist/glitch.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            background: #0a0e27;
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: linear-gradient(135deg, #FF6B35 0%, #C1272D 50%, #FFD700 100%) !important;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 700;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            color: white !important;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #FF6B35 0%, #C1272D 25%, #1F3A93 50%, #FFD700 100%);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(193, 39, 45, 0.1) 0%, transparent 50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.2;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero .lema {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 20px 0 30px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 1s ease-out 0.3s backwards;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out 0.6s backwards;
+            line-height: 1.6;
+        }
+
+        .btn-hero {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1F3A93 !important;
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            animation: slideInUp 1s ease-out 0.9s backwards;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-7px) scale(1.08);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.6);
+        }
+
+        .btn-hero:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== BANDERA SECTION ===== */
+        .bandera-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3f 100%);
+        }
+
+        .bandera-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bandera-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 350px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            border: 5px solid #FF6B35;
+        }
+
+        .bandera-item:hover {
+            transform: translateY(-20px) scale(1.05) rotate(2deg);
+            box-shadow: 0 30px 80px rgba(255, 107, 53, 0.5);
+            border-color: #FFD700;
+        }
+
+        .bandera-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: brightness(0.95);
+        }
+
+        .bandera-item:hover img {
+            transform: scale(1.15) rotate(-3deg);
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        .bandera-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: white;
+            padding: 30px 20px 20px;
+            text-align: center;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .bandera-item:hover .bandera-label {
+            transform: translateY(0);
+        }
+
+        .bandera-label h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #FFD700;
+        }
+
+        .bandera-label p {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        /* ===== CENTRO DALMA ALEJANDRA ===== */
+        .dalma-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #FF6B35 0%, #C1272D 25%, #1F3A93 50%, #2D6A4F 75%, #FFD700 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dalma-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+            animation: shift 10s ease-in-out infinite;
+        }
+
+        @keyframes shift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+        }
+
+        .dalma-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .dalma-name {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        /* EFECTO GLITCH PERSONALIZADO */
+        .dalma-text {
+            font-size: 6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            line-height: 1;
+            color: white;
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.8),
+                0 0 20px rgba(255, 107, 53, 0.6),
+                0 0 40px rgba(193, 39, 45, 0.4);
+            animation: glitch-custom 3s ease-in-out infinite, float-name 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .dalma-text::before {
+            content: 'DALMA ALEJANDRA';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            color: #FFD700;
+            opacity: 0.8;
+            text-shadow: -2px 0 #FF6B35;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch-before 0.3s infinite;
+        }
+
+        .dalma-text::after {
+            content: 'DALMA ALEJANDRA';
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: #1F3A93;
+            opacity: 0.8;
+            text-shadow: -2px 0 #C1272D;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch-after 0.3s infinite;
+        }
+
+        @keyframes glitch-custom {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 107, 53, 0.6); }
+            50% { text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(193, 39, 45, 0.8), 0 0 40px rgba(31, 58, 147, 0.6); }
+        }
+
+        @keyframes glitch-before {
+            0% { clip: rect(0, 900px, 0, 0); }
+            5% { clip: rect(10px, 9999px, 40px, 0); }
+            10% { clip: rect(5px, 9999px, 10px, 0); }
+            15% { clip: rect(0, 9999px, 0, 0); }
+        }
+
+        @keyframes glitch-after {
+            0% { clip: rect(0, 0, 0, 0); }
+            5% { clip: rect(30px, 9999px, 65px, 0); }
+            10% { clip: rect(20px, 9999px, 30px, 0); }
+            15% { clip: rect(0, 0, 0, 0); }
+        }
+
+        @keyframes float-name {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .dalma-subtitle {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            animation: slideInUp 1.5s ease-out 0.3s backwards;
+        }
+
+        .dalma-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(45deg, #FFD700, #FF6B35);
+            border-radius: 50%;
+            animation: particle-float 8s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes particle-float {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-1000px) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* ===== LUGARES TURÍSTICOS ===== */
+        .turismo-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #FF6B35 0%, #C1272D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lugar-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            border-left: 8px solid #FF6B35;
+            position: relative;
+        }
+
+        .lugar-card:hover {
+            transform: translateY(-25px) scale(1.02) skewY(-2deg);
+            box-shadow: 0 30px 80px rgba(255, 107, 53, 0.3);
+            border-left-color: #FFD700;
+        }
+
+        .lugar-img-wrapper {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .lugar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .lugar-card:hover .lugar-img {
+            transform: scale(1.15) rotate(3deg);
+            filter: brightness(1.1) saturate(1.3);
+        }
+
+        .lugar-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF6B35, #C1272D);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            z-index: 3;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .lugar-info {
+            padding: 30px;
+        }
+
+        .lugar-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #1F3A93;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lugar-desc {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .lugar-icon {
+            display: inline-block;
+            font-size: 2.5rem;
+            color: #FF6B35;
+            margin-bottom: 15px;
+        }
+
+        /* ===== VALORES SECTION ===== */
+        .valores-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1F3A93 0%, #2D6A4F 100%);
+            color: white;
+        }
+
+        .valor-item {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .valor-item:hover {
+            transform: translateY(-20px) scale(1.05);
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        .valor-icon {
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .valor-item:hover .valor-icon {
+            transform: rotateY(360deg) scale(1.1);
+        }
+
+        .valor-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .valor-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a0e27;
+            color: white;
+            padding: 60px 20px 20px;
+            text-align: center;
+            border-top: 5px solid #FF6B35;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h3 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+            transform: translateX(10px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B35, #C1272D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-8px) scale(1.15) rotate(360deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .footer-bottom {
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+            padding-top: 30px;
+            color: #999;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .dalma-text {
+                font-size: 3.5rem;
+                letter-spacing: 4px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .historia-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                margin-top: 60px;
+                padding: 60px 20px;
+                min-height: 500px;
+            }
+
+            .bandera-item {
+                height: 280px;
+            }
+        }
+
+        /* ===== EFECTO PARALLAX ===== */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* ===== SCROLLBAR PERSONALIZADO ===== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e27;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #FF6B35, #C1272D);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0e27;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 1s ease-out 2s forwards;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: pulse-text 1s ease-in-out infinite;
+        }
+
+        .loader-bar {
+            width: 300px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35, #C1272D, #FFD700);
+            border-radius: 10px;
+            margin-top: 20px;
+            background-size: 200% 100%;
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-text {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes loading {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOADER -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-text">Santa Cruz de la Sierra</div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">🇧🇴 Santa Cruz Hospitalaria</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#bandera">Bandera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dalma">Dalma Alejandra</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#turismo">Turismo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#valores">Valores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__zoomIn">SANTA CRUZ DE LA SIERRA</h1>
+            <p class="lema">🏳️ La Hospitalidad es Nuestro Lema 🏳️</p>
+            <p class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">Bienvenido al corazón del oriente boliviano, donde la calidez de su gente te recibirá con los brazos abiertos</p>
+            <button class="btn-hero animate__animated animate__pulse" onclick="document.getElementById('bandera').scrollIntoView({behavior: 'smooth'});">Descubrir Más</button>
+        </div>
+    </section>
+
+    <!-- BANDERA SECTION -->
+    <section id="bandera" class="bandera-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">Nuestros Lugares Emblemáticos</h2>
+            
+            <div class="bandera-grid">
+                <!-- Plaza del 24 de Septiembre -->
+                <a href="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop" class="bandera-item" data-lightbox="bandera" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=350&fit=crop" alt="Plaza Principal">
+                    <div class="bandera-label">
+                        <h3>Plaza del 24 de Septiembre</h3>
+                        <p>El corazón palpitante de la ciudad</p>
+                    </div>
+                </a>
+
+                <!-- Catedral Metropolitana -->
+                <a href="https://images.unsplash.com/photo-1548625149-fc4a146b5eef?w=600&h=400&fit=crop" class="bandera-item" data-lightbox="bandera" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1548625149-fc4a146b5eef?w=400&h=350&fit=crop" alt="Catedral">
+                    <div class="bandera-label">
+                        <h3>Catedral Metropolitana</h3>
+                        <p>Joya arquitectónica colonial</p>
+                    </div>
+                </a>
+
+                <!-- Parque La Alameda -->
+                <a href="https://images.unsplash.com/photo-1520681492485-5e7f55aa9e0e?w=600&h=400&fit=crop" class="bandera-item" data-lightbox="bandera" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1520681492485-5e7f55aa9e0e?w=400&h=350&fit=crop" alt="Parque">
+                    <div class="bandera-label">
+                        <h3>Parque La Alameda</h3>
+                        <p>Oasis verde de la ciudad</p>
+                    </div>
+                </a>
+
+                <!-- Museo de Arte Contemporáneo -->
+                <a href="https://images.unsplash.com/photo-1564399579883-451a5d44c11c?w=600&h=400&fit=crop" class="bandera-item" data-lightbox="bandera" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1564399579883-451a5d44c11c?w=400&h=350&fit=crop" alt="Museo">
+                    <div class="bandera-label">
+                        <h3>Museo de Arte</h3>
+                        <p>Expresión cultural cruceña</p>
+                    </div>
+                </a>
+
+                <!-- Zoológico Municipal -->
+                <a href="https://images.unsplash.com/photo-1484406566174-9da000fda645?w=600&h=400&fit=crop" class="bandera-item" data-lightbox="bandera" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1484406566174-9da000fda645?w=400&h=350&fit=crop" alt="Zoológico">
+                    <div class="bandera-label">
+                        <h3>Zoológico Municipal</h3>
+                        <p>Fauna amazónica en su hábitat</p>
+                    </div>
+                </a>
+
+                <!-- Cristo Redentor -->
+                <a href="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop" class="bandera-item" data-lightbox="bandera" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=350&fit=crop" alt="Cristo">
+                    <div class="bandera-label">
+                        <h3>Colina del Cristo Redentor</h3>
+                        <p>Símbolo de fe y protección</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DALMA ALEJANDRA SECTION -->
+    <section id="dalma" class="dalma-section">
+        <div class="dalma-particles" id="particlesContainer"></div>
+        
+        <div class="dalma-container">
+            <div class="dalma-name">
+                <h1 class="dalma-text">DALMA ALEJANDRA</h1>
+            </div>
+            <p class="dalma-subtitle">Te damos la bienvenida a esta tierra de hospitalidad y amor</p>
+            <p style="font-size: 1.2rem; margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                En Santa Cruz de la Sierra, cada rincón respira calidez y acogida. Nuestra gente, nuestras tradiciones y nuestra cultura se unen para crear una experiencia inolvidable. 
+                Este es un espacio donde la hospitalidad no es solo un valor, sino una forma de vida que compartimos con cada visitante.
+            </p>
+        </div>
+    </section>
+
+    <!-- LUGARES TURÍSTICOS -->
+    <section id="turismo" class="turismo-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">Descubre Nuestros Tesoros</h2>
+            
+            <div class="row g-4">
+                <!-- Tarjeta 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="0">
+                    <div class="lugar-card">
+                        <div class="lugar-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop" alt="Mercado Familiar" class="lugar-img">
+                            <span class="lugar-badge">🌟 Popular</span>
+                        </div>
+                        <div class="lugar-info">
+                            <div class="lugar-icon"><i class="fas fa-shopping-bag"></i></div>
+                            <h3 class="lugar-title">Mercado Familiar</h3>
+                            <p class="lugar-desc">Vive la experiencia de las tradiciones y sabores auténticos del mercado cruceño. Un lugar lleno de vida, color y energía.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="lugar-card">
+                        <div class="lugar-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1520681492485-5e7f55aa9e0e?w=400&h=300&fit=crop" alt="Parques Naturales" class="lugar-img">
+                            <span class="lugar-badge">🌿 Natural</span>
+                        </div>
+                        <div class="lugar-info">
+                            <div class="lugar-icon"><i class="fas fa-tree"></i></div>
+                            <h3 class="lugar-title">Parques Naturales</h3>
+                            <p class="lugar-desc">Conecta con la naturaleza en nuestros espacios verdes. Perfectos para disfrutar en familia y respirar aire puro.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="lugar-card">
+                        <div class="lugar-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1564399579883-451a5d44c11c?w=400&h=300&fit=crop" alt="Gastronomía" class="lugar-img">
+                            <span class="lugar-badge">🍽️ Delicia</span>
+                        </div>
+                        <div class="lugar-info">
+                            <div class="lugar-icon"><i class="fas fa-utensils"></i></div>
+                            <h3 class="lugar-title">Gastronomía Cruceña</h3>
+                            <p class="lugar-desc">Saborea los platillos más exquisitos de la región. Tradición, calidad e ingredientes frescos en cada mesa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="0">
+                    <div class="lugar-card">
+                        <div class="lugar-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1484406566174-9da000fda645?w=400&h=300&fit=crop" alt="Vida Silvestre" class="lugar-img">
+                            <span class="lugar-badge">🦁 Fauna</span>
+                        </div>
+                        <div class="lugar-info">
+                            <div class="lugar-icon"><i class="fas fa-paw"></i></div>
+                            <h3 class="lugar-title">Vida Silvestre</h3>
+                            <p class="lugar-desc">Observa especies amazónicas en su hábitat natural. Un encuentro único con la biodiversidad de Bolivia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="lugar-card">
+                        <div class="lugar-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Sitios Religiosos" class="lugar-img">
+                            <span class="lugar-badge">✨ Sagrado</span>
+                        </div>
+                        <div class="lugar-info">
+                            <div class="lugar-icon"><i class="fas fa-praying-hands"></i></div>
+                            <h3 class="lugar-title">Sitios Religiosos</h3>
+                            <p class="lugar-desc">Visita nuestros templos históricos llenos de espiritualidad y arquitectura colonial. Espacios de paz y devoción.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="lugar-card">
+                        <div class="lugar-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1548625149-fc4a146b5eef?w=400&h=300&fit=crop" alt="Eventos" class="lugar-img">
+                            <span class="lugar-badge">🎉 Fiesta</span>
+                        </div>
+                        <div class="lugar-info">
+                            <div class="lugar-icon"><i class="fas fa-music"></i></div>
+                            <h3 class="lugar-title">Eventos y Ferias</h3>
+                            <p class="lugar-desc">Participa en nuestras celebraciones culturales. Música, danza y tradición que palpitan en cada festival.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALORES SECTION -->
+    <section id="valores" class="valores-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down" style="color: white; margin-bottom: 60px;">Nuestros Valores Fundamentales</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="valor-item">
+                        <div class="valor-icon"><i class="fas fa-handshake"></i></div>
+                        <h3 class="valor-title">Hospitalidad</h3>
+                        <p class="valor-desc">Recibimos a cada visitante como familia, con calidez genuina y atención sincera.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="valor-item">
+                        <div class="valor-icon"><i class="fas fa-heart"></i></div>
+                        <h3 class="valor-title">Amor por la Cultura</h3>
+                        <p class="valor-desc">Preservamos y celebramos las tradiciones que nos definen como pueblo.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="valor-item">
+                        <div class="valor-icon"><i class="fas fa-leaf"></i></div>
+                        <h3 class="valor-title">Respeto por la Naturaleza</h3>
+                        <p class="valor-desc">Cuidamos nuestros bosques y biodiversidad para las futuras generaciones.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="valor-item">
+                        <div class="valor-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3 class="valor-title">Innovación y Progreso</h3>
+                        <p class="valor-desc">Avanzamos hacia el futuro manteniendo nuestras raíces y valores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🇧🇴 Santa Cruz</h3>
+                <p>La Tierra de la Hospitalidad</p>
+                <p>Donde cada visitante es familia</p>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <a href="#bandera">Lugares Emblemáticos</a>
+                <a href="#dalma">Dalma Alejandra</a>
+                <a href="#turismo">Atractivos Turísticos</a>
+                <a href="#valores">Nuestros Valores</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Santa Cruz de la Sierra, Bolivia</p>
+                <p><i class="fas fa-phone"></i> +591 3-XXXXXXX</p>
+                <p><i class="fas fa-envelope"></i> info@santacruz.bo</p>
+                <p><i class="fas fa-globe"></i> www.santacruzbo.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Santa Cruz de la Sierra - La Tierra de la Hospitalidad</p>
+            <p>Desarrollado con <span style="color: #FF6B35;">❤️</span> por <strong>Dalma Alejandra</strong> | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
+    
+    <!-- Swiper JS (para futuras mejoras) -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out',
+            offset: 50
+        });
+
+        // Generar partículas animadas en la sección Dalma
+        function createParticles() {
+            const container = document.getElementById('particlesContainer');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particle.style.width = (Math.random() * 15 + 5) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
+        // Smooth scroll en links del navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Efecto parallax en scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const dalmaSection = document.querySelector('.dalma-section');
+            
+            if (dalmaSection) {
+                dalmaSection.style.backgroundPosition = '0 ' + (scrollPosition * 0.3) + 'px';
+            }
+        });
+
+        // Inicializar partículas cuando se carga la página
+        createParticles();
+
+        // Detector de scroll para agregar clase activa al navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 8px 32px rgba(255, 107, 53, 0.6)';
+            } else {
+                navbar.style.boxShadow = '0 8px 32px rgba(255, 107, 53, 0.4)';
+            }
+        });
+
+        // Animación del contador de scroll
+        let scrollProgress = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            scrollProgress = (scrollTop / docHeight);
+        });
+
+        // Log de carga
+        console.log('%c🇧🇴 Bienvenido a Santa Cruz de la Sierra - La Tierra de la Hospitalidad', 'color: #FF6B35; font-size: 16px; font-weight: bold;');
+        console.log('%c💛 Página de Dalma Alejandra cargada exitosamente', 'color: #FFD700; font-size: 14px;');
+
+        // Animación del botón hero
+        document.querySelector('.btn-hero').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 10);
+        });
+    </script>
+</body>
+</html>
